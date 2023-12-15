@@ -256,9 +256,13 @@ body {
   font-size: 2rem;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
-  margin-left: 43%;
+  margin-left: 41%;
   color:rgb(113, 31, 31);
 
+}
+
+.candle1{
+  color: red;
 }
 
   </style>
@@ -286,26 +290,7 @@ body {
 
 <script>
 
-    // Function to simulate blowing out candles
-    function blowOutCandles() {
-      // Your logic to handle blowing out candles goes here
-                  
-                  document.querySelector(".candel1").classList.remove("flame");
-                  document.querySelector(".candel2").classList.remove("flame2");
-                  document.querySelector(".candel3").classList.remove("flame3");
-
-      // console.log("Candles blown out!");
-      // alert("Happy birthday ");
-     
-      document.getElementById("wish").innerText = "Happy BirthDay";
-    }
-
-
-
- 
-//     // Event listener for microphone input
-    document.getElementById("birthday-cake").addEventListener('click', function () {
-
+function main(){
                   document.querySelector(".candel1").classList.add("flame");
                   document.querySelector(".candel2").classList.add("flame2");
                   document.querySelector(".candel3").classList.add("flame3");        
@@ -338,8 +323,36 @@ body {
         .catch(function (err) {
           console.error('Error accessing microphone: ', err);
         });
-      
+      }
 
+    // Function to simulate blowing out candles
+    function blowOutCandles() {
+      // Your logic to handle blowing out candles goes here
+                  
+                  document.querySelector(".candel1").classList.remove("flame");
+                  document.querySelector(".candel2").classList.remove("flame2");
+                  document.querySelector(".candel3").classList.remove("flame3");
+
+      // console.log("Candles blown out!");
+      // alert("Happy birthday ");
+     
+      document.getElementById("wish").innerText = "Happy BirthDay";
+
+      setInterval(main , 3000)
+
+
+    
+    }
+
+
+    
+
+
+
+ 
+    // Event listener for microphone input
+    document.querySelector("#birthday-cake").addEventListener('click', function () {
+    main();
 
     });
   </script>
