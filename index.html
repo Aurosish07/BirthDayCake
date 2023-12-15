@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blow Out Candles</title>
+  <style>
+    #cake {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      position: relative;
+      display: flex;
+      margin-left:45%;
+      margin-top:5%;
+    }
+    .candle {
+      width: 10px;
+      height: 100px;
+      background-color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="cake">
+    <div class="candle" id="candle1" style="left: 30px;"></div>
+    <div class="candle" id="candle2" style="left: 90px;"></div>
+    <div class="candle" id="candle3" style="left: 150px;"></div>
+  </div>
+
+  <script>
+    // Function to simulate blowing out candles
+    function blowOutCandles() {
+      // Your logic to handle blowing out candles goes here
+      
+      console.log("Candles blown out!");
+      alert("Happy birthday ");
+    }
+
+    // Event listener for microphone input
+    window.addEventListener('click', function () {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function (stream) {
+          const audioContext = new AudioContext();
+          const analyser = audioContext.createAnalyser();
+          const microphone = audioContext.createMediaStreamSource(stream);
+          const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+
+          analyser.smoothingTimeConstant = 0.8;
+          analyser.fftSize = 1024;
+
+          microphone.connect(analyser);
+          analyser.connect(scriptProcessor);
+          scriptProcessor.connect(audioContext.destination);
+
+          scriptProcessor.onaudioprocess = function () {
+            const array = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(array);
+            const average = array.reduce((a, b) => a + b) / array.length;
+
+            // You may need to adjust this threshold based on your environment
+            if (average > 100) {
+              blowOutCandles();
+            }
+          };
+        })
+        .catch(function (err) {
+          console.error('Error accessing microphone: ', err);
+        });
+    });
+  </script>
+</body>
+</html>
