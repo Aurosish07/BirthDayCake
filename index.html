@@ -6,7 +6,7 @@
   <title>Blow Out Candles</title>
   <style>
 
-body {
+body{
   display: flex;
   height:100vh;
   align-items: center;
@@ -270,8 +270,6 @@ body {
 </head>
 <body>
   <p class="birthday-text" id="wish"></p>
-  
-
   <div id="birthday-cake">
   
     <div class="cake">
@@ -288,9 +286,8 @@ body {
 </div>
 
 </div>
-
+<script src="./confetti.js"></script>
 <script>
-
 function main(){
                   document.querySelector(".candel1").classList.add("flame");
                   document.querySelector(".candel2").classList.add("flame2");
@@ -316,8 +313,10 @@ function main(){
             const average = array.reduce((a, b) => a + b) / array.length;
 
             // You may need to adjust this threshold based on your environment
-            if (average > 100) {
+            if (average > 10) {
               blowOutCandles();
+              startConfetti();
+              repositionCake();
             }
           };
         })
@@ -344,7 +343,9 @@ function main(){
 
     
     }
-
+    function repositionCake() {
+        document.getElementById("birthday-cake").style.left = "51.5%";
+    }
 
     
 
