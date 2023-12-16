@@ -265,6 +265,7 @@ body {
   color: red;
 }
 
+
   </style>
 </head>
 <body>
@@ -315,7 +316,7 @@ function main(){
             const average = array.reduce((a, b) => a + b) / array.length;
 
             // You may need to adjust this threshold based on your environment
-            if (average > 90) {
+            if (average > 100) {
               blowOutCandles();
             }
           };
@@ -333,7 +334,7 @@ function main(){
                   document.querySelector(".candel2").classList.remove("flame2");
                   document.querySelector(".candel3").classList.remove("flame3");
 
-      // console.log("Candles blown out!");
+      console.log("Candles blown out!");
       // alert("Happy birthday ");
      
       document.getElementById("wish").innerText = "Happy BirthDay";
