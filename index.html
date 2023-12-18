@@ -314,11 +314,12 @@ function main(){
             const average = array.reduce((a, b) => a + b) / array.length;
 
             // You may need to adjust this threshold based on your environment
-            if (average > 10) {
+            if (average > 90) {
               blowOutCandles();
 
               if(!candlesBlownOut){
               blast();
+              // wish();
               candlesBlownOut = true;
               }
 
@@ -354,8 +355,14 @@ function main(){
     }
     function blast(){
       var audio = new Audio("balloonpop-83760.mp3");
+      audio.volume = 1;
       audio.play();
     
+    }
+    function wish(){
+       var audio1 = new Audio("song.mp3");
+       audio1.volume = 1;
+       audio1.play();
     }
 
     
@@ -366,6 +373,7 @@ function main(){
     // Event listener for microphone input
     document.querySelector("#birthday-cake").addEventListener('click', function () {
     main();
+    wish();
 
     });
   </script>
