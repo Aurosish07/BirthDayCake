@@ -280,7 +280,7 @@
       position: absolute;
       top: 5px;
       /* Adjust as needed */
-      left: 20px;
+      left:1.6rem;
       /* Adjust as needed */
       /* Add other styles as needed */
       text-align: center;
@@ -318,6 +318,7 @@
   </div>
   <script src="./confetti.js"></script>
   <script>
+    alert("Do not decrease the volume of your device to make this work properly")
     var name = prompt("Enter the birthday body or girl name");
     let candlesBlownOut = false;
     function main() {
@@ -385,7 +386,7 @@
       console.log("Candles blown out!");
       // alert("Happy birthday ");
 
-      document.getElementById("wish").innerText = "Happy BirthDay " + name;
+      document.getElementById("wish").innerText = "Happy BirthDay to you " + name;
       setInterval(main, 3000);
 
     }
