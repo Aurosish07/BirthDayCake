@@ -295,10 +295,26 @@
     .candle1 {
       color: red;
     }
+    .textb {
+  position: absolute;
+  bottom: 10px; /* Position it at the bottom */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Center it horizontally */
+  z-index: 1; /* Makes the text appear above other elements */
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: black;
+  background-color: rgba(194, 191, 191, 0.6); /* Semi-transparent black background */
+  padding: 10px; /* Add some padding */
+  border-radius: 5px; /* Rounded corners */
+  font-family: monospace;
+}
   </style>
 </head>
 
 <body>
+  <p class="textb" id="add"></p>
   <p class="birthday-text" id="wish"></p>
   <div id="birthday-cake">
 
@@ -318,8 +334,8 @@
   </div>
   <script src="./confetti.js"></script>
   <script>
-    alert("Do not decrease the volume of your device to make this work properly")
-    var name = prompt("Enter the birthday body or girl name");
+    var name = prompt("Enter the birthday Boy/Girl name and make sure the volume is on");
+    document.querySelector("#add").innerText = "Copyright (c) 2024 Developed by Aurosish Rout";
     let candlesBlownOut = false;
     function main() {
       document.querySelector(".candel1").classList.add("flame");
